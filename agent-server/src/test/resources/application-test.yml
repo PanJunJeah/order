@@ -1,0 +1,15 @@
+# 测试环境：H2 内存库替代 MySQL，离线评测无需本机数据库
+spring:
+  datasource:
+    url: jdbc:h2:mem:agenttest;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  ai:
+    openai:
+      # 测试固定走离线模式（避免误连外部大模型）
+      api-key: demo-offline-key

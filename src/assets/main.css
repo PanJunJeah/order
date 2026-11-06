@@ -1,0 +1,122 @@
+/* ===== 味知 · 智慧点餐平台 —— 全局主题 ===== */
+:root {
+  /* 品牌色板 */
+  --brand-primary: #ff6a2b;
+  --brand-primary-dark: #e8571a;
+  --brand-gradient: linear-gradient(135deg, #ff8a4c 0%, #ff5f1f 100%);
+  --brand-soft: #fff1e8;
+
+  --ink-900: #1f2430;
+  --ink-700: #3d4454;
+  --ink-500: #6b7280;
+  --ink-300: #a6adbb;
+
+  --bg-page: #f6f4f1;
+  --bg-card: #ffffff;
+  --line: #ede9e3;
+
+  --shadow-sm: 0 1px 3px rgba(31, 36, 48, 0.06);
+  --shadow-md: 0 6px 18px rgba(31, 36, 48, 0.08);
+  --shadow-lg: 0 14px 40px rgba(31, 36, 48, 0.14);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --success: #22a06b;
+  --warning: #e8a13c;
+  --danger: #e5484d;
+
+  /* Element Plus 主题联动 */
+  --el-color-primary: #ff6a2b;
+  --el-color-primary-light-3: #ff8a57;
+  --el-color-primary-light-5: #ffa67f;
+  --el-color-primary-light-7: #ffc4a8;
+  --el-color-primary-light-8: #ffd8c4;
+  --el-color-primary-light-9: #ffede3;
+  --el-color-primary-dark-2: #e8571a;
+  --el-border-radius-base: 10px;
+  --el-font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--ink-900);
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  height: 100%;
+}
+
+/* 细滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d2c9;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 通用卡片 */
+.panel-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+}
+
+/* 页面标题 */
+.page-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+/* 通用过渡 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* Element Plus 微调 */
+.el-card {
+  border-radius: var(--radius-md);
+  border-color: var(--line);
+}
+.el-button--primary {
+  background: var(--brand-gradient);
+  border: none;
+}
+.el-button--primary:hover {
+  opacity: 0.92;
+}

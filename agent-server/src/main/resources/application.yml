@@ -1,0 +1,48 @@
+server:
+
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: order-agent-server
+  # MySQL 持久化（线上版本）
+  datasource:
+    url: jdbc:mysql://localhost:3306/order_platform?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  ai:
+    openai:
+      # DeepSeek 提供 OpenAI 兼容协议接口
+      base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+      # ⚠️ 密钥不写入仓库：请在系统环境变量中配置 DEEPSEEK_API_KEY
+      #    Windows:  setx DEEPSEEK_API_KEY "sk-xxxx"（或 系统设置→环境变量）
+      #    未配置时自动降级为离线演示模式（demo-offline-key 仅为占位，确保 Bean 可创建）
+      api-key: ${DEEPSEEK_API_KEY:demo-offline-key}
+      chat:
+        options:
+          model: ${DEEPSEEK_MODEL:deepseek-chat}
+          temperature: 0.3
+
+agent:
+  # auto: 有 DEEPSEEK_API_KEY 时走大模型，否则自动降级为离线演示模式
+  # live: 强制走大模型；offline: 强制离线模式（不产生任何外部调用）
+  mode: ${AGENT_MODE:auto}
+  # 单次对话最大工具调用步数（防死循环 / 防无限消耗 token）
+  max-steps: ${AGENT_MAX_STEPS:6}
+  # 单次工具执行超时（毫秒）
+  tool-timeout-ms: ${AGENT_TOOL_TIMEOUT_MS:5000}
+  # 会话记忆上限（消息条数 / 过期分钟）
+  conversation-max-messages: ${AGENT_CONVERSATION_MAX_MESSAGES:40}
+  conversation-ttl-minutes: ${AGENT_CONVERSATION_TTL_MINUTES:30}
+
+logging:
+  level:
+    com.order.agent: INFO

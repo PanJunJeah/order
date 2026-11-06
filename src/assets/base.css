@@ -1,0 +1,4 @@
+/* 基础重置（与 main.css 主题变量配套） */
+body {
+  min-height: 100vh;
+}
