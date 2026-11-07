@@ -22,9 +22,6 @@ spring:
     openai:
       # DeepSeek 提供 OpenAI 兼容协议接口
       base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
-      # ⚠️ 密钥不写入仓库：请在系统环境变量中配置 DEEPSEEK_API_KEY
-      #    Windows:  setx DEEPSEEK_API_KEY "sk-xxxx"（或 系统设置→环境变量）
-      #    未配置时自动降级为离线演示模式（demo-offline-key 仅为占位，确保 Bean 可创建）
       api-key: ${DEEPSEEK_API_KEY:demo-offline-key}
       chat:
         options:
