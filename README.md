@@ -81,4 +81,4 @@ cd agent-server
 - **聊天是离线模式？** `agent.mode=auto`：解析到 api-key（环境变量或 application.yml）即走 DeepSeek live；无 Key 时自动降级为确定性离线助手（与 live 共用同一套工具实现）。
 - **数据库连不上？** 确认 MySQL 8 已启动、root/123456 有效、库 `master_art` 存在（首次启动自动建表并播种 24 道菜）。
 - **`npm run build` 报 esbuild “Access is denied”？** 通常是 dev 服务正在运行时两个 esbuild 争用临时目录；先停止 dev 服务再构建，或将 `TEMP` 指向项目内目录。
-- **⚠️ 密钥安全**：`application.yml` 内已写入 DeepSeek key，若推送到公开仓库请先改回环境变量 `DEEPSEEK_API_KEY`。
+
